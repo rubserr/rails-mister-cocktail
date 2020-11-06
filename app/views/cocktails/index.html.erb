@@ -1,4 +1,8 @@
 <h1>🍹 List of Cocktails! 🍸</h1>
+
+<%= link_to new_cocktail_path, class: 'btn btn-outline-primary' do %>
+  <i class="fa fa-plus"></i> Add new cocktail
+<% end  %>
 <ul> 
   <% @cocktails.each do |cocktail| %>
   <li> 

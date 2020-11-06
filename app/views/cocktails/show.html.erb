@@ -1,0 +1,18 @@
+<h2> Cocktail details </h2>
+
+<h4> <%= @cocktail.name %> </h4> 
+
+<% if notice.present? %>
+  <div class="alert alert-success alerta-dismissible fade show" role: "alert">
+    <%= notice.html_safe %>
+    
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<% end %>
+
+
+<%= link_to cocktails_path do %>
+  &larr; Back
+<% end %>
