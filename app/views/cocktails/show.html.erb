@@ -3,7 +3,7 @@
 <h4> <%= @cocktail.name %> </h4> 
 
 <% if notice.present? %>
-  <div class="alert alert-success alerta-dismissible fade show" role: "alert">
+  <div class="alert alert-success alert-dismissible fade show" role: "alert">
     <%= notice.html_safe %>
     
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -12,7 +12,52 @@
   </div>
 <% end %>
 
+<h3> Ingredients: </h3>
 
+
+<% if alert.present? %>
+  <div class="alert alert-success alert-dismissible fade show" role: "alert">
+    <%= alert.html_safe %>
+    
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<% end %>
+
+
+
+<% if @cocktail.doses.any? %>
+  <ul>
+    <% @cocktail.doses.each do |dose| %>
+      <li> <%= dose.description %> <%= dose.ingredient.name %>  
+        <%= link_to dose_path(dose), method: :delete, data: { confirm: 'Really?!' }, class: 'text-danger' do %>
+          <small> <i class="fa fa-trash"></i> </small>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+  <% else %>
+  <p>
+    <em> No ingredients added, please use the button below to add new ingredients to your cocktail </em>    
+  </p>
+<% end %>
+
+<div>
+  <%= link_to new_cocktail_dose_path(@cocktail), class: 'btn btn-sm btn-outline-secondary' do %>
+    <i class="fa fa-plus"></i> Add ingredient dose
+  <% end %>
+</div>
+ 
 <%= link_to cocktails_path do %>
   &larr; Back
 <% end %>
+
+
+
+
+
+
+
+
+
