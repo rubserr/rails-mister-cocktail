@@ -28,6 +28,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.12.0'
 gem 'simple_form'
+gem 'rest-client'
 
 
 # Reduces boot times through caching; required in config/boot.rb
